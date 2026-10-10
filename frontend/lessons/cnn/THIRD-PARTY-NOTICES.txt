@@ -1,0 +1,2 @@
+CNN visualization is adapted from CNN Explainer (poloclub/cnn-explainer). The lesson UI removes upstream creator credits and external promotion sections and is integrated into DataSphare. Licensed under the MIT License; see LICENSE for required copyright and license notice.
+Source: https://github.com/poloclub/cnn-explainer

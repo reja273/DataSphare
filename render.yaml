@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: datasphare
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: cd backend && npm ci
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: TRUST_PROXY
+        value: "1"

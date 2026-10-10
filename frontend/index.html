@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8fc">
+    <meta name="description" content="Learn data science by exploring interactive machine learning and deep learning lessons on DataSphare.">
+    <title>DataSphare — Learn by exploring</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.home-document {
+            --home-ink: #172033;
+            --home-muted: #69758a;
+            --home-violet: #7055f6;
+            --home-violet-dark: #573bd5;
+            --home-border: #e7eaf2;
+            --home-surface: #fff;
+            background: #f7f8fc;
+            color: var(--home-ink);
+            font-family: "DM Sans", "Segoe UI", sans-serif;
+        }
+        .home-document .site-header { background: rgba(255,255,255,.92); border-color: rgba(228,232,241,.9); }
+        .home-document .site-header-inner { max-width: 1240px; }
+        .home-document .site-nav { gap: 3px; }
+        .home-document .site-nav a { font-size: .9rem; }
+        .home-document .brand { letter-spacing: -.035em; }
+        .home-main { overflow: hidden; }
+        .home-container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+        .home-hero-wrap { padding: 34px 0 28px; }
+        .home-hero {
+            position: relative; isolation: isolate; overflow: hidden; min-height: 530px; display: grid;
+            grid-template-columns: 1.02fr .98fr; align-items: center; gap: 42px; padding: 72px 68px;
+            color: #fff; border-radius: 30px;
+            background: radial-gradient(ellipse at 84% 12%, rgba(124,96,255,.36), transparent 35%),
+                        radial-gradient(ellipse at 8% 100%, rgba(32,120,180,.22), transparent 42%),
+                        linear-gradient(125deg, #111a2b 0%, #17223a 55%, #211c46 100%);
+            box-shadow: 0 28px 70px rgba(20,28,55,.16);
+        }
+        .home-hero:before { content:""; position:absolute; inset:0; z-index:-1; opacity:.18; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:44px 44px; mask-image:linear-gradient(90deg,transparent 5%,#000 100%); }
+        .home-hero-copy { position:relative; z-index:2; max-width:550px; }
+        .home-kicker { display:inline-flex; align-items:center; gap:9px; margin-bottom:23px; color:#c8c1ff; font-size:.78rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+        .home-kicker:before { content:""; width:8px; height:8px; border-radius:50%; background:#9b8aff; box-shadow:0 0 0 5px rgba(155,138,255,.14); }
+        .home-hero h1 { max-width:620px; margin:0 0 20px; color:#fff; font-size:clamp(2.8rem,5.25vw,4.55rem); line-height:1.02; letter-spacing:-.065em; }
+        .home-hero h1 span { color:#b8adff; }
+        .home-hero-copy > p { max-width:510px; margin:0; color:#c2cada; font-size:1.08rem; line-height:1.8; }
+        .home-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:31px; }
+        .home-document .home-action-primary { padding:14px 21px; border:1px solid #8a78ff; border-radius:12px; color:#fff; background:linear-gradient(135deg,#8066ff,#6748e8); box-shadow:0 10px 24px rgba(103,72,232,.35); font-weight:750; }
+        .home-document .home-action-primary:hover { background:linear-gradient(135deg,#907cff,#7052f1); transform:translateY(-2px); }
+        .home-document .home-action-secondary { padding:14px 21px; border:1px solid rgba(255,255,255,.2); border-radius:12px; color:#f3f4fa; background:rgba(255,255,255,.06); font-weight:700; }
+        .home-document .home-action-secondary:hover { background:rgba(255,255,255,.12); }
+        .home-proof { display:flex; flex-wrap:wrap; gap:19px; margin-top:27px; color:#aeb8ca; font-size:.83rem; }
+        .home-proof span { display:inline-flex; align-items:center; gap:7px; }
+        .home-proof svg { width:15px; height:15px; color:#a999ff; }
+        .home-visual { position:relative; min-height:360px; display:grid; place-items:center; }
+        .home-orbit { position:absolute; width:350px; height:350px; border:1px solid rgba(190,183,255,.19); border-radius:50%; box-shadow:0 0 0 38px rgba(190,183,255,.035),0 0 0 78px rgba(190,183,255,.025); }
+        .home-orbit:before,.home-orbit:after { content:""; position:absolute; width:9px; height:9px; border-radius:50%; background:#aa9bff; box-shadow:0 0 18px #aa9bff; }
+        .home-orbit:before { top:48px; right:48px; }.home-orbit:after { bottom:62px; left:23px; width:6px; height:6px; }
+        .home-model-card { position:relative; z-index:1; width:min(100%,390px); padding:22px; border:1px solid rgba(255,255,255,.17); border-radius:20px; background:linear-gradient(145deg,rgba(35,44,70,.92),rgba(27,32,57,.92)); box-shadow:0 24px 60px rgba(0,0,0,.28); backdrop-filter:blur(16px); transform:rotate(1deg); }
+        .home-model-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.1); }
+        .home-model-title { display:flex; align-items:center; gap:10px; color:#f7f7fb; font-size:.9rem; font-weight:750; }
+        .home-model-icon { width:34px; height:34px; display:grid; place-items:center; border:1px solid rgba(159,143,255,.28); border-radius:10px; color:#b7aaff; background:rgba(131,105,255,.14); }
+        .home-model-status { display:inline-flex; align-items:center; gap:6px; color:#a9e8c3; font-size:.7rem; font-weight:700; }
+        .home-model-status:before { content:""; width:6px; height:6px; border-radius:50%; background:#68d99a; }
+        .home-chart-label { display:flex; justify-content:space-between; margin:16px 0 9px; color:#aeb8ca; font-size:.69rem; }
+        .home-chart { width:100%; height:auto; display:block; overflow:visible; }
+        .home-model-bottom { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+        .home-metric { padding:11px 12px; border:1px solid rgba(255,255,255,.09); border-radius:12px; background:rgba(255,255,255,.035); }
+        .home-metric small { display:block; color:#9ca8bd; font-size:.68rem; }
+        .home-metric strong { display:block; margin-top:4px; color:#f4f3ff; font-size:.98rem; }
+        .home-section { padding:84px 0; }
+        .home-section-heading { max-width:680px; margin:0 auto 36px; text-align:center; }
+        .home-section-heading .home-label { color:var(--home-violet); font-size:.75rem; font-weight:850; letter-spacing:.14em; text-transform:uppercase; }
+        .home-section-heading h2 { margin:10px 0 12px; color:var(--home-ink); font-size:clamp(2rem,3.4vw,2.9rem); line-height:1.12; letter-spacing:-.05em; }
+        .home-section-heading p { margin:0 auto; color:var(--home-muted); font-size:1.03rem; line-height:1.75; }
+        .home-path-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+        .home-path-card { position:relative; min-height:285px; display:flex; flex-direction:column; padding:26px; overflow:hidden; border:1px solid var(--home-border); border-radius:20px; color:inherit; background:#fff; box-shadow:0 12px 34px rgba(30,42,72,.045); text-decoration:none; transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; }
+        .home-path-card:hover { transform:translateY(-5px); border-color:#d6ceff; box-shadow:0 22px 46px rgba(40,42,90,.11); }
+        .home-path-card:focus-visible { outline:3px solid #a99aff; outline-offset:3px; }
+        .home-path-card:after { content:""; position:absolute; width:170px; height:170px; right:-77px; top:-83px; border-radius:50%; background:var(--path-glow,rgba(112,85,246,.08)); }
+        .home-path-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+        .home-path-icon { width:48px; height:48px; display:grid; place-items:center; border-radius:14px; color:var(--path-accent,#7055f6); background:var(--path-tint,#f0edff); }
+        .home-path-icon svg { width:24px; height:24px; }
+        .home-path-icon b { font-size:.78rem; letter-spacing:-.04em; }
+        .home-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 9px; border:1px solid #e7eaf1; border-radius:999px; color:#657087; background:#fafbfe; font-size:.67rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+        .home-pill.live:before { content:""; width:6px; height:6px; border-radius:50%; background:#39b77a; }
+        .home-path-card h3 { margin:0 0 9px; color:#1c2639; font-size:1.28rem; letter-spacing:-.035em; }
+        .home-path-card p { max-width:340px; margin:0; color:var(--home-muted); font-size:.93rem; line-height:1.7; }
+        .home-path-meta { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+        .home-path-meta span { padding:5px 8px; border-radius:7px; color:#68738a; background:#f5f6fa; font-size:.7rem; font-weight:700; }
+        .home-path-link { display:inline-flex; align-items:center; gap:8px; margin-top:auto; padding-top:22px; color:#674be8; font-size:.88rem; font-weight:800; }
+        .home-path-link svg { width:16px; height:16px; transition:transform .2s; }
+        .home-path-card:hover .home-path-link svg { transform:translateX(4px); }
+        .home-path-card.coming { background:linear-gradient(145deg,#fff,#fafbfe); }
+        .home-path-card.coming .home-path-icon { color:#7a8394; background:#f0f2f6; }
+        .home-path-card.coming .home-path-link { color:#7b8494; }
+        .home-steps-section { background:#fff; border-top:1px solid #edf0f5; border-bottom:1px solid #edf0f5; }
+        .home-steps-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; border:1px solid var(--home-border); border-radius:20px; overflow:hidden; background:#fff; }
+        .home-step { position:relative; min-height:210px; padding:28px; }
+        .home-step + .home-step { border-left:1px solid var(--home-border); }
+        .home-step-number { width:36px; height:36px; display:grid; place-items:center; margin-bottom:20px; border-radius:11px; color:#6449e8; background:#f0edff; font-size:.82rem; font-weight:850; }
+        .home-step h3 { margin:0 0 8px; font-size:1.05rem; letter-spacing:-.02em; }
+        .home-step p { margin:0; color:var(--home-muted); font-size:.88rem; line-height:1.7; }
+        .home-community { position:relative; display:grid; grid-template-columns:1fr auto; align-items:center; gap:28px; padding:36px 40px; overflow:hidden; border:1px solid #e3ddff; border-radius:22px; background:linear-gradient(120deg,#f0edff 0%,#f8f7ff 58%,#edf5ff 100%); }
+        .home-community:after { content:""; position:absolute; width:190px; height:190px; right:140px; top:-120px; border:1px solid rgba(112,85,246,.14); border-radius:50%; box-shadow:0 0 0 22px rgba(112,85,246,.035),0 0 0 46px rgba(112,85,246,.025); }
+        .home-community-copy { position:relative; z-index:1; max-width:690px; }
+        .home-community h2 { margin:0 0 8px; color:#20263a; font-size:1.65rem; letter-spacing:-.04em; }
+        .home-community p { margin:0; color:#667088; line-height:1.7; }
+        .home-document .home-community .btn { position:relative; z-index:1; white-space:nowrap; }
+        .home-footer { padding:28px 24px 34px; border-top:1px solid #e7eaf1; background:#fff; }
+        .home-footer-inner { width:min(1160px,100%); margin:auto; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+        .home-footer .brand { font-size:1rem; }
+        .home-footer p { margin:0; color:#8992a3; font-size:.82rem; }
+        @media (max-width:1000px) {
+            .home-document .site-header-inner { gap:14px; padding:0 20px; }
+            .home-document .site-nav { gap:0; margin-left:2px; }
+            .home-document .site-nav a { padding:8px 9px; font-size:.82rem; }
+            .home-document .header-actions { gap:6px; }
+            .home-document .header-actions .btn { padding:8px 12px; font-size:.84rem; }
+            .home-hero { gap:20px; padding:58px 42px; }
+            .home-visual { min-height:320px; }.home-orbit { width:290px;height:290px; }
+        }
+        @media (max-width:760px) {
+            .home-document .site-header-inner { padding:0 18px; }
+            .home-document .site-nav { position:absolute; top:calc(100% + 1px); left:0; right:0; display:none; align-items:stretch; margin:0; padding:12px 18px 16px; border-bottom:1px solid var(--home-border); background:#fff; box-shadow:0 15px 24px rgba(20,30,60,.08); }
+            .home-document .site-header.open .site-nav { display:flex; flex-direction:column; }
+            .home-document .site-nav a { padding:11px 13px; font-size:.94rem; }
+            .home-document .nav-toggle { display:block; order:3; margin-left:0; }
+            .home-document .header-actions { margin-left:auto; }
+            .home-document .header-actions .btn { padding:8px 11px; }
+            .home-document .brand { font-size:1.03rem; }
+            .home-container { width:min(100% - 32px,600px); }
+            .home-hero-wrap { padding:18px 0 15px; }
+            .home-hero { grid-template-columns:1fr; gap:18px; padding:42px 27px 29px; border-radius:23px; }
+            .home-hero h1 { max-width:550px; font-size:clamp(2.7rem,10.5vw,4rem); }
+            .home-hero-copy > p { font-size:1rem; }
+            .home-proof { gap:12px 17px; font-size:.77rem; }
+            .home-visual { min-height:315px; margin-top:6px; }
+            .home-model-card { max-width:390px; }
+            .home-section { padding:66px 0; }
+            .home-section-heading { margin-bottom:27px; }
+            .home-path-grid { grid-template-columns:1fr; gap:13px; }
+            .home-path-card { min-height:250px; padding:23px; }
+            .home-steps-grid { grid-template-columns:1fr; }
+            .home-step { min-height:0; padding:24px; }
+            .home-step + .home-step { border-left:0; border-top:1px solid var(--home-border); }
+            .home-step-number { margin-bottom:14px; }
+            .home-community { grid-template-columns:1fr; padding:28px 25px; }
+            .home-community .btn { justify-self:start; }
+            .home-footer-inner { align-items:flex-start; flex-direction:column; }
+        }
+        @media (max-width:390px) {
+            .home-document .site-header-inner { gap:8px; padding:0 12px; }
+            .home-document .brand { gap:7px; font-size:.94rem; }
+            .home-document .brand svg { width:31px; height:31px; }
+            .home-document .header-actions .btn { padding:7px 9px; font-size:.78rem; }
+            .home-document .nav-toggle { width:38px; height:38px; }
+            .home-container { width:calc(100% - 24px); }
+            .home-hero { padding:35px 21px 24px; }
+            .home-actions { align-items:stretch; flex-direction:column; }
+            .home-actions .btn { width:100%; }
+            .home-model-card { padding:17px; }
+        }
+        @media (prefers-reduced-motion:reduce) {
+            .home-document *, .home-document *:before, .home-document *:after { scroll-behavior:auto!important; transition:none!important; }
+        }
+    </style>
+</head>
+<body class="home-document">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="DataSphare home">
+                <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+                    <rect width="40" height="40" rx="10" fill="#5b4dff"/>
+                    <text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text>
+                </svg>
+                DataSphare
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="index.html" class="active">Home</a>
+                <a href="ml-section.html">Machine Learning</a>
+                <a href="deep-learning.html">Deep Learning</a>
+                <a href="blog.html">Community</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="header-actions" data-auth-slot></div>
+        </div>
+    </header>
+
+    <main class="home-main">
+        <section class="home-hero-wrap" aria-labelledby="home-title">
+            <div class="home-container">
+                <div class="home-hero">
+                    <div class="home-hero-copy">
+                        <span class="home-kicker">A visual data science learning lab</span>
+                        <h1 id="home-title">Understand the idea.<br><span>See it in action.</span></h1>
+                        <p>Explore how machine learning works through clear explanations, interactive visualizations, and practical experiments you can run yourself.</p>
+                        <div class="home-actions">
+                            <a class="btn home-action-primary" href="ml-section.html">Explore Machine Learning <span aria-hidden="true">→</span></a>
+                            <a class="btn home-action-secondary" href="#learning-paths">View learning paths</a>
+                        </div>
+                        <div class="home-proof" aria-label="Learning experience features">
+                            <span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Learn by interacting</span>
+                            <span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Practice with code</span>
+                            <span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Beginner friendly</span>
+                        </div>
+                    </div>
+                    <div class="home-visual" aria-label="Illustration of a model learning from data">
+                        <div class="home-orbit" aria-hidden="true"></div>
+                        <div class="home-model-card">
+                            <div class="home-model-top">
+                                <div class="home-model-title">
+                                    <span class="home-model-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 20 20" fill="none"><circle cx="4" cy="5" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="5" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="15" r="2" stroke="currentColor" stroke-width="1.5"/><path d="m5.7 6.2 2.8 6.5m5.8-6.5-2.8 6.5M6 5h8" stroke="currentColor" stroke-width="1.5"/></svg></span>
+                                    Model learning from data
+                                </div>
+                                <span class="home-model-status">Training</span>
+                            </div>
+                            <div class="home-chart-label"><span>Prediction vs. observation</span><span>Live view</span></div>
+                            <svg class="home-chart" viewBox="0 0 360 178" role="img" aria-label="Scatter plot with a fitted trend line">
+                                <defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8c78ff" stop-opacity=".27"/><stop offset="1" stop-color="#8c78ff" stop-opacity="0"/></linearGradient></defs>
+                                <path d="M37 20v128h302M37 116c46-11 54-35 92-41s61-4 94-25 68-15 116-37v135H37Z" fill="url(#chartFill)"/>
+                                <g stroke="rgba(225,230,244,.12)" stroke-width="1"><path d="M37 52h302M37 84h302M37 116h302M97 20v128M157 20v128M217 20v128M277 20v128"/></g>
+                                <path d="M42 124c37-4 55-27 87-34s54-7 86-25 71-16 119-39" fill="none" stroke="#a99bff" stroke-width="3.5" stroke-linecap="round"/>
+                                <g fill="#fff" stroke="#a99bff" stroke-width="2.5"><circle cx="53" cy="116" r="4.5"/><circle cx="76" cy="119" r="4.5"/><circle cx="94" cy="103" r="4.5"/><circle cx="113" cy="100" r="4.5"/><circle cx="131" cy="91" r="4.5"/><circle cx="154" cy="99" r="4.5"/><circle cx="173" cy="79" r="4.5"/><circle cx="195" cy="84" r="4.5"/><circle cx="215" cy="67" r="4.5"/><circle cx="240" cy="71" r="4.5"/><circle cx="260" cy="50" r="4.5"/><circle cx="281" cy="56" r="4.5"/><circle cx="303" cy="35" r="4.5"/><circle cx="326" cy="39" r="4.5"/></g>
+                                <g fill="#aab4c8" font-family="Segoe UI, sans-serif" font-size="9"><text x="35" y="165">LOW</text><text x="313" y="165">HIGH</text><text x="4" y="25">HIGH</text></g>
+                            </svg>
+                            <div class="home-model-bottom">
+                                <div class="home-metric"><small>Training step</small><strong>48 / 100</strong></div>
+                                <div class="home-metric"><small>Model error</small><strong>↓ Improving</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section" id="learning-paths" aria-labelledby="paths-title">
+            <div class="home-container">
+                <div class="home-section-heading">
+                    <span class="home-label">Choose your next step</span>
+                    <h2 id="paths-title">A clearer path into data science</h2>
+                    <p>Start with the fundamentals, explore a model, and build an intuition you can carry into your own projects.</p>
+                </div>
+                <div class="home-path-grid">
+                    <a class="home-path-card" href="ml-section.html" style="--path-accent:#674ce9;--path-tint:#f0edff;--path-glow:rgba(112,85,246,.1)">
+                        <div class="home-path-top">
+                            <span class="home-path-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="15" r="1" fill="currentColor"/><circle cx="11" cy="11" r="1" fill="currentColor"/><circle cx="14" cy="13" r="1" fill="currentColor"/></svg></span>
+                            <span class="home-pill live">Explore now</span>
+                        </div>
+                        <h3>Machine Learning</h3>
+                        <p>Understand how models find patterns, make predictions, and improve from examples.</p>
+                        <div class="home-path-meta"><span>Regression</span><span>Decision trees</span><span>Model evaluation</span></div>
+                        <span class="home-path-link">Explore the path <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    <a class="home-path-card" href="deep-learning.html" style="--path-accent:#267fa1;--path-tint:#eaf7fb;--path-glow:rgba(65,166,190,.11)">
+                        <div class="home-path-top">
+                            <span class="home-path-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="m7 7 3.5 3.5M7 17l3.5-3.5M13.5 10.5 17 7m-3.5 6.5L17 17" stroke-linecap="round"/></svg></span>
+                            <span class="home-pill live">Explore now</span>
+                        </div>
+                        <h3>Deep Learning</h3>
+                        <p>Explore neural networks and see how convolutional models recognize patterns.</p>
+                        <div class="home-path-meta"><span>Neural networks</span><span>CNN</span><span>Visual lessons</span></div>
+                        <span class="home-path-link">Explore the path <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </a>
+                    <a class="home-path-card" href="statistics.html" style="--path-accent:#168777;--path-tint:#e7f7f2;--path-glow:rgba(22,135,119,.1)" aria-label="Explore Statistics learning path">
+                        <div class="home-path-top">
+                            <span class="home-path-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 16V9m5 7V5m5 11v-4" stroke-linecap="round"/><circle cx="7" cy="7" r="1.5"/><circle cx="17" cy="9" r="1.5"/></svg></span>
+                            <span class="home-pill">Explore path</span>
+                        </div>
+                        <h3>Statistics</h3>
+                        <p>Build a strong foundation for making sense of data and uncertainty.</p>
+                        <div class="home-path-meta"><span>Foundations</span><span>Data intuition</span></div>
+                        <span class="home-path-link">Explore the path <span aria-hidden="true">↗</span></span>
+                    </a>
+                    <div class="home-path-card coming" aria-label="Linear Algebra coming soon"><div class="home-path-top"><span class="home-path-icon" aria-hidden="true">∑</span><span class="home-pill">Coming soon</span></div><h3>Linear Algebra</h3><p>Explore vectors, matrices, transformations, and the structure behind modern machine learning.</p><div class="home-path-meta"><span>Vectors</span><span>Matrices</span></div><span class="home-path-link">In preparation</span></div>
+                    <div class="home-path-card coming" aria-label="Calculus coming soon"><div class="home-path-top"><span class="home-path-icon" aria-hidden="true">∫</span><span class="home-pill">Coming soon</span></div><h3>Calculus</h3><p>Build intuition for change, derivatives, integrals, and the mathematics of learning.</p><div class="home-path-meta"><span>Derivatives</span><span>Integrals</span></div><span class="home-path-link">In preparation</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section home-steps-section" aria-labelledby="approach-title">
+            <div class="home-container">
+                <div class="home-section-heading">
+                    <span class="home-label">Learning that sticks</span>
+                    <h2 id="approach-title">Move from intuition to implementation</h2>
+                    <p>Each lesson is designed to help you connect the concept to what a model actually does.</p>
+                </div>
+                <div class="home-steps-grid">
+                    <article class="home-step"><span class="home-step-number">01</span><h3>Understand the idea</h3><p>Follow a focused explanation that makes the central concept easier to grasp.</p></article>
+                    <article class="home-step"><span class="home-step-number">02</span><h3>Explore the visual</h3><p>Change inputs, observe the model, and see how its behavior responds.</p></article>
+                    <article class="home-step"><span class="home-step-number">03</span><h3>Try it yourself</h3><p>Practice with code and connect the visualization to a real learning workflow.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section" id="about" aria-labelledby="community-title">
+            <div class="home-container">
+                <div class="home-community">
+                    <div class="home-community-copy">
+                        <span class="home-label">Learn together</span>
+                        <h2 id="community-title">Make room for questions and ideas.</h2>
+                        <p>Share what you are learning, write about a concept, and join the DataSphare community conversation.</p>
+                    </div>
+                    <a class="btn btn-primary" href="blog.html">Visit the community <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <div class="home-footer-inner">
+            <a class="brand" href="index.html">
+                <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#5b4dff"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text></svg>
+                DataSphare
+            </a>
+            <p>Learn by exploring. Build understanding one idea at a time.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+        const homeNavToggle = document.querySelector('.nav-toggle');
+        const homeSiteHeader = document.querySelector('.site-header');
+        if (homeNavToggle && homeSiteHeader) {
+            homeNavToggle.addEventListener('click', () => {
+                window.requestAnimationFrame(() => {
+                    const isOpen = homeSiteHeader.classList.contains('open');
+                    homeNavToggle.setAttribute('aria-expanded', String(isOpen));
+                    homeNavToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+

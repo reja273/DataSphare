@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write — DataSphare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-editor.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">
+                <svg width="36" height="36" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#5b4dff"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text></svg>
+                DataSphare
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open menu">☰</button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="ml-section.html">Machine Learning</a><a href="deep-learning.html">Deep Learning</a>
+                <a href="statistics.html">Statistics</a>
+                <a href="blog.html">Community</a>
+                <a href="index.html#about">About</a>
+            </nav>
+            <div class="header-actions" data-auth-slot></div>
+        </div>
+    </header>
+
+    <main class="editor-main">
+        <div class="editor-container">
+            <label class="editor-label" for="postTitle">Story title</label>
+            <input type="text" class="title-input" placeholder="Give your story a clear title" id="postTitle" minlength="4" maxlength="160" autocomplete="off">
+            <div class="title-help"><span>Use at least 4 characters.</span><span id="titleCount">0 / 160</span></div>
+            <div class="tags-input-container">
+                <input type="text" class="tags-input" placeholder="Add a tag and press Enter" id="tagsInput">
+                <div class="selected-tags" id="selectedTags"></div>
+            </div>
+            <div class="toolbar">
+                <button class="toolbar-btn" type="button" data-command="bold" title="Bold"><b>B</b></button>
+                <button class="toolbar-btn" type="button" data-command="italic" title="Italic"><i>I</i></button>
+                <button class="toolbar-btn" type="button" data-command="underline" title="Underline"><u>U</u></button>
+                <div class="toolbar-divider"></div>
+                <button class="toolbar-btn" type="button" data-command="formatBlock" data-value="h2">H2</button>
+                <button class="toolbar-btn" type="button" data-command="formatBlock" data-value="blockquote">Quote</button>
+                <button class="toolbar-btn" type="button" data-command="insertUnorderedList">Bullet list</button>
+                <button class="toolbar-btn" type="button" data-command="insertOrderedList">Numbered list</button>
+                <button class="toolbar-btn" type="button" id="linkBtn">Link</button>
+                <button class="toolbar-btn" type="button" id="imageBtn">Image</button>
+                <button class="toolbar-btn" type="button" id="videoBtn">Video</button>
+                <input type="file" id="imageFile" accept="image/png,image/jpeg,image/webp" hidden>
+                
+            </div>
+            <div class="editor" contenteditable="true" id="editor" data-placeholder="Tell your story…" aria-label="Story content"></div>
+            <p class="editor-note">Images are resized in your browser. Video embeds support YouTube and Vimeo.</p>
+            <div class="publish-section">
+                <label class="publish-option">
+                    <input type="checkbox" id="makePublic" checked>
+                    <span>Make public</span>
+                </label>
+                <div class="publish-buttons">
+                    <a class="btn-secondary" href="blog.html">Cancel</a>
+                    <button class="btn-primary" type="button" id="publishBtn">Publish</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/site.js"></script>
+    <script src="blog-editor.js"></script>
+</body>
+</html>

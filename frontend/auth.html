@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in — DataSphare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">
+                <svg width="36" height="36" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#5b4dff"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text></svg>
+                DataSphare
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open menu">☰</button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="ml-section.html">Learning</a>
+                <a href="blog.html">Community</a>
+            </nav>
+            <div class="header-actions" data-auth-slot></div>
+        </div>
+    </header>
+
+    <main class="auth-shell">
+        <div class="auth-card">
+            <span class="eyebrow">Account</span>
+            <h1>Welcome back</h1>
+            <p>Sign in to publish stories, like posts, and join the comments.</p>
+            <div class="tabs">
+                <button type="button" id="tab-login" class="active">Sign in</button>
+                <button type="button" id="tab-register">Create account</button>
+            </div>
+            <p class="form-error" id="auth-error"></p>
+            <form id="login-form">
+                <div class="field">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" type="email" required autocomplete="email">
+                </div>
+                <div class="field">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" type="password" required autocomplete="current-password">
+                </div>
+                <button class="btn btn-primary" type="submit" style="width:100%">Sign in</button>
+            </form>
+            <form id="register-form" hidden>
+                <div class="field">
+                    <label for="register-name">Name</label>
+                    <input id="register-name" type="text" required minlength="2" autocomplete="name">
+                </div>
+                <div class="field">
+                    <label for="register-email">Email</label>
+                    <input id="register-email" type="email" required autocomplete="email">
+                </div>
+                <div class="field">
+                    <label for="register-password">Password</label>
+                    <input id="register-password" type="password" required minlength="8" maxlength="72" autocomplete="new-password">
+                </div>
+                <button class="btn btn-primary" type="submit" style="width:100%">Create account</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

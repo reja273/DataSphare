@@ -1,0 +1,2 @@
+Train, Test, and Validation interactive lesson adapted from aws-samples/aws-mlu-explain, originally by Jared Wilber and Brent Werness. Source: https://github.com/aws-samples/aws-mlu-explain/tree/main/train-test-validation
+License: Creative Commons Attribution-ShareAlike 4.0 International (see LICENSE). DataSphare removed source-site branding, contributor UI, outbound references, and promotional links.

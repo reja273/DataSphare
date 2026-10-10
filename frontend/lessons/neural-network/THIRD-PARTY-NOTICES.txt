@@ -1,0 +1,4 @@
+Neural Network lesson visualization adapts the MLU-Explain Neural Networks article from aws-samples/aws-mlu-explain.
+Original creator: Jared Wilber. Source: https://github.com/aws-samples/aws-mlu-explain/tree/main/code/neural-networks
+Changes in DataSphare: Removed the author byline and external promotions, adapted navigation and styling, and added a separate interactive Python practice lab.
+Documentation license: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0); see LICENSE. Sample/reference code license: MIT-0; see LICENSE-SAMPLECODE.

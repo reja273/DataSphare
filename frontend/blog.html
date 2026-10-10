@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — DataSphare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">
+                <svg width="36" height="36" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#5b4dff"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text></svg>
+                DataSphare
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open menu">☰</button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="ml-section.html">Machine Learning</a><a href="deep-learning.html">Deep Learning</a>
+                <a href="statistics.html">Statistics</a>
+                <a href="blog.html" class="active">Community</a>
+                <a href="index.html#about">About</a>
+            </nav>
+            <div class="header-actions" data-auth-slot></div>
+        </div>
+    </header>
+
+    <main class="blog-main">
+        <section class="blog-header">
+            <div>
+                <h1>Stories</h1>
+                <p>Write about what you learned. Public posts show up here for everyone.</p>
+            </div>
+            <a class="btn btn-primary" href="blog-editor.html">Write a story</a>
+        </section>
+        <section class="blog-search-box">
+            <div class="search-input-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="blogSearchInput" placeholder="Search stories by topic, title, tag, or author..." />
+                <button class="clear-search-btn" id="clearSearchBtn" type="button" style="display:none;" title="Clear search">&times;</button>
+            </div>
+        </section>
+        <section class="tags-filter" id="tagFilter">
+            <button class="tag-btn active" data-tag="All">All</button>
+            <button class="tag-btn" data-tag="Machine Learning">Machine Learning</button>
+            <button class="tag-btn" data-tag="Statistics">Statistics</button>
+            <button class="tag-btn" data-tag="Tutorial">Tutorial</button>
+            <button class="tag-btn" data-tag="Deep Learning">Deep Learning</button>
+        </section>
+        <section class="blog-feed" id="blogFeed">
+            <p class="empty-feed">Loading stories…</p>
+        </section>
+    </main>
+
+    <footer class="site-footer"><p>© 2026 DataSphare</p></footer>
+    <script src="js/api.js"></script>
+    <script src="js/site.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

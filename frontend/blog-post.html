@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story — DataSphare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="blog-post.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">
+                <svg width="36" height="36" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#5b4dff"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Arial">DS</text></svg>
+                DataSphare
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open menu">☰</button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="ml-section.html">Machine Learning</a><a href="deep-learning.html">Deep Learning</a>
+                <a href="statistics.html">Statistics</a>
+                <a href="blog.html">Community</a>
+                <a href="index.html#about">About</a>
+            </nav>
+            <div class="header-actions" data-auth-slot></div>
+        </div>
+    </header>
+
+    <main class="post-main">
+        <article class="article-container" id="article">
+            <p>Loading…</p>
+        </article>
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">More stories</h3>
+                <div class="related-posts" id="related"></div>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer"><p>© 2026 DataSphare</p></footer>
+    <script src="js/api.js"></script>
+    <script src="js/site.js"></script>
+    <script src="blog-post.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles/normalize.css" />
+    <link rel="stylesheet" href="assets/styles/font.css" />
+    <link rel="stylesheet" href="assets/styles/katex.css" />
+    <link rel="stylesheet" href="assets/styles/global.css" />
+    <link rel="stylesheet" href="build/bundle.css" />
+
+    <script defer src="build/bundle.js"></script>
+
+    <!-- meta tags -->
+    <title>Logistic Regression — DataSphare</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="A visual, interactive explanation of logistic regression for machine learning."
+    />
+    <meta
+      name="keywords"
+      content="logistic regression classification threshold binary visual machine learning"
+    />
+    <meta property="og:title" content="Logistic Regression — DataSphare" />
+    <meta property="og:site_name" content="DataSphare" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Playground styles & libraries -->
+    <link rel="stylesheet" href="styles/ml-playground.css" />
+    <link rel="stylesheet" href="styles/ml-python-code.css" />
+    <script src="assets/plotly.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Svelte app renders here via bundle.js -->
+
+    <script>
+      window.addEventListener('load', function () {
+        var pgDiv = document.createElement('div');
+        pgDiv.id = 'dataspharePlaygroundContainer';
+        document.body.appendChild(pgDiv);
+
+        var pgScript = document.createElement('script');
+        pgScript.src = 'js/ml-playground.js';
+        pgScript.onload = function () {
+          DataSpharePlayground.init('dataspharePlaygroundContainer', { type: 'logistic-regression' });
+        };
+        document.head.appendChild(pgScript);
+
+        var pyDiv = document.createElement('div');
+        pyDiv.id = 'dsPythonCodeContainer';
+        document.body.appendChild(pyDiv);
+
+        var pyScript = document.createElement('script');
+        pyScript.src = 'js/ml-python-code.js';
+        pyScript.onload = function () {
+          DataSpharePyCode.init('dsPythonCodeContainer', { type: 'logistic-regression' });
+        };
+        document.head.appendChild(pyScript);
+      });
+    </script>
+  </body>
+</html>

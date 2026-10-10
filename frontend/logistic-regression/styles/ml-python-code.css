@@ -1,0 +1,227 @@
+/* ============================================================
+   DataSphare Python Code Section Styles
+   ============================================================ */
+
+.ds-pycode-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0b0f19;
+  border-top: 2px solid #1e293b;
+  padding: 48px 24px 56px;
+  margin-top: 0;
+}
+
+/* Header */
+.ds-pycode-header {
+  max-width: 960px;
+  margin: 0 auto 32px;
+}
+
+.ds-pycode-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #78350f, #b45309);
+  color: #fde68a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.ds-pycode-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 10px;
+}
+
+.ds-pycode-subtitle {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tab Buttons */
+.ds-pycode-tabs {
+  max-width: 960px;
+  margin: 0 auto 0;
+  display: flex;
+  gap: 6px;
+}
+
+.ds-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: #1e293b;
+  border: 1.5px solid #334155;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.2s ease;
+  border-bottom: none;
+}
+
+.ds-tab-btn:hover {
+  background: #263042;
+  color: #cbd5e1;
+}
+
+.ds-tab-btn.ds-tab-active {
+  background: #111827;
+  border-color: #6366f1;
+  border-bottom: 2px solid #111827;
+  color: #a5b4fc;
+  margin-bottom: -1px;
+}
+
+/* Code content area */
+.ds-pycode-content {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #111827;
+  border: 1.5px solid #1e293b;
+  border-radius: 0 8px 8px 8px;
+  overflow: hidden;
+}
+
+.ds-pycode-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.ds-pycode-lang {
+  font-size: 11px;
+  color: #f59e0b;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ds-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: #374151;
+  border: 1px solid #4b5563;
+  color: #d1d5db;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.ds-copy-btn:hover {
+  background: #4b5563;
+  color: #f3f4f6;
+}
+
+/* Code block */
+.ds-pycode-pre {
+  margin: 0;
+  padding: 20px 22px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.7;
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+.ds-pycode-pre::-webkit-scrollbar { width: 6px; height: 6px; }
+.ds-pycode-pre::-webkit-scrollbar-track { background: transparent; }
+.ds-pycode-pre::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+.ds-pycode-pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  color: #e2e8f0;
+  white-space: pre;
+  display: block;
+}
+
+/* Python Syntax Highlighting */
+.py-comment  { color: #6b7280; font-style: italic; }
+.py-string   { color: #a3e635; }
+.py-kw       { color: #818cf8; font-weight: 600; }
+.py-builtin  { color: #38bdf8; }
+.py-num      { color: #fb923c; }
+.py-decorator { color: #f472b6; }
+
+/* Note / Info bar */
+.ds-pycode-note {
+  max-width: 960px;
+  margin: 14px auto 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.ds-pycode-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ds-pycode-note strong {
+  color: #fbbf24;
+}
+
+.ds-pycode-note code {
+  background: #1e293b;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #a3e635;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ds-pycode-wrapper {
+    padding: 32px 12px 40px;
+  }
+  .ds-pycode-title {
+    font-size: 1.2rem;
+  }
+  .ds-pycode-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+  .ds-tab-btn {
+    border-radius: 6px;
+    border-bottom: 1.5px solid #334155;
+    margin-bottom: 4px;
+  }
+  .ds-tab-btn.ds-tab-active {
+    border-radius: 6px;
+    border-bottom: 2px solid #6366f1;
+    margin-bottom: 4px;
+  }
+  .ds-pycode-content {
+    border-radius: 8px;
+  }
+  .ds-pycode-pre {
+    font-size: 11px;
+    padding: 14px;
+  }
+}

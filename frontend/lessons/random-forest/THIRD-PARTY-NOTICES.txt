@@ -1,0 +1,4 @@
+Random Forest interactive lesson adapted from aws-samples/aws-mlu-explain.
+Original creators: Jenny Yeon and Jared Wilber. Source: https://github.com/aws-samples/aws-mlu-explain/tree/main/random-forest
+Changes in DataSphare: Removed source-site author links, promotions, and reference credits; added a separate Python practice lab and integrated the lesson into DataSphare.
+Documentation license: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0); see LICENSE. Sample/reference code license: MIT-0; see LICENSE-SAMPLECODE.

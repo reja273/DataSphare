@@ -1,0 +1,10 @@
+node_modules/
+backend/node_modules/
+.env
+backend/data.json
+mlu_source/
+cnn-explainer-master/
+legacy-frontend-sources/
+*.log
+.DS_Store
+Thumbs.db
