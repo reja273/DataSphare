@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DataSphare
 
 DataSphare is a static learning frontend served by an Express backend. The backend provides account registration/sign-in, persistent community stories, likes, comments, author follows, private stories, and owner-only story updates/deletion.
@@ -41,3 +42,6 @@ The repository includes a `render.yaml` blueprint for a free Render web service 
 - `POST /api/users/:id/follow`
 
 Authenticated requests use `Authorization: Bearer <token>`. Story content is sanitized on the server before storage.
+=======
+# DataSphare
+>>>>>>> 1df67470b1873f2ee7821b574300e4fbebb14052
